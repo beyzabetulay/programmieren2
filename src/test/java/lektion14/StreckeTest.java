@@ -35,7 +35,8 @@ import org.junit.jupiter.api.Test;
     @Test
     public void testToString() {
         Strecke s1 = new Strecke(3, 5);
-        assertTrue(s1.toString().equals("3--5"));
+        assertEquals(s1.toString(),("3--5"));
+        assertFalse(s1.toString().equals("3-5"));
 
         Strecke s2 = new Strecke(2, 8);
         assertTrue(s2.toString().equals("2------8"));

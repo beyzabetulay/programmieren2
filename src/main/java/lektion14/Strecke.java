@@ -5,7 +5,7 @@ public class Strecke {
     private int b;
 
     public Strecke(int a, int b) {
-        if (a > b) {
+        if (a > b) { // a muss kleiner
             int temp = a;
             a = b;
             b = temp;

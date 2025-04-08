@@ -49,6 +49,7 @@ public class PersonTest {
         try {
             new Person("Max", "Mustermann", "Hauptstrasse", "A12", "12345", "Berlin");
             fail("RuntimeException erwartet!");
+
         } catch (RuntimeException e) {
             assertTrue(e.getMessage().equals("Hausnummer muss mit einer Ziffer beginnen!"));
         }
