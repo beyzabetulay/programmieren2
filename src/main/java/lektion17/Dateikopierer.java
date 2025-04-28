@@ -69,13 +69,26 @@ public class Dateikopierer {
         long endZeit = System.currentTimeMillis();
         System.out.println("Mit eigenem Buffer Dauer: " + (endZeit - startZeit) + " ms");    }
 
+    public static void vergleicheDateien(String quellDateiPfad, String zielDateiPfad) {
+        File quelle = new File(quellDateiPfad);
+        File ziel = new File(zielDateiPfad);
+
+        if (quelle.length() == ziel.length()) {
+            System.out.println("Dateien sind gleich groß ✅");
+        } else {
+            System.out.println("Dateien sind unterschiedlich groß ❌");
+        }
+    }
+
+
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Bitte geben Sie den Pfad der Quelldatei ein (z.B. C:\\Users\\beyza\\Desktop\\Temp\\test.txt): ");
+        System.out.println("Bitte geben Sie den Pfad der Quelldatei ein (z.B. C:\\Users\\beyza\\Bilgisayar\\Desktop\\Temp\\test.txt: ");
         String quellDateiPfad = scanner.nextLine().trim();
 
-        System.out.println("Bitte geben Sie den Pfad der Zieldatei ein (z.B. C:\\Users\\beyza\\Desktop\\Temp\\sonuc.txt): ");
+        System.out.println("Bitte geben Sie den Pfad der Zieldatei ein (z.B. C:\\Users\\beyza\\Bilgisayar\\Desktop\\Temp\\sonuc.txt: ");
         String zielDateiPfad = scanner.nextLine().trim();
 
         //     C:\\Users\\beyza\\Bilgisayar\\Desktop\\Temp\\test.txt
@@ -88,12 +101,18 @@ public class Dateikopierer {
 
             // Methode 1: ungepufferter Byte-Stream
             kopiereUngepuffertByteweise(quellDateiPfad, zielDateiPfad + "_ungepuffert_" + i);
+            vergleicheDateien(quellDateiPfad, zielDateiPfad + "_ungepuffert_" + i);
+
 
             // Methode 2: gepufferter Byte-Stream
             kopiereGepuffertByteweise(quellDateiPfad, zielDateiPfad + "_gepuffert_" + i);
+            vergleicheDateien(quellDateiPfad, zielDateiPfad + "_gepuffert_" + i);
+
 
             // Methode 3: ungepuffert aber mit byte[] buffer
             kopiereMitBuffer(quellDateiPfad, zielDateiPfad + "_mitBuffer_" + i);
+            vergleicheDateien(quellDateiPfad, zielDateiPfad + "_mitBuffer_" + i);
+
         }
     }
 }
