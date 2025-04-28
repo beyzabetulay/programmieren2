@@ -11,8 +11,8 @@ public class Person {
 
     public Person(String vorname, String nachname, String strasse, String hausnummer, String postleitzahl, String ort) {
         if (!(vorname.charAt(0) >= 'A' && vorname.charAt(0) <= 'Z') ||
-                !(strasse.charAt(0) >= 'A' && strasse.charAt(0) <= 'Z') ||
-                !(ort.charAt(0) >= 'A' && ort.charAt(0) <= 'Z')) {
+            !(strasse.charAt(0) >= 'A' && strasse.charAt(0) <= 'Z') ||
+            !(ort.charAt(0) >= 'A' && ort.charAt(0) <= 'Z')) {
             throw new RuntimeException("Vorname, Strasse und Ort müssen mit einem Großbuchstaben beginnen!");
         }
 
