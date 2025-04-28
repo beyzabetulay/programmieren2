@@ -1,14 +1,16 @@
-package lektion15.Quiz;
+package lektion15.quiz;
 
-public class main {
+public class Main {
+
     public static void main(String[] args){
-        textQuestion tq = new textQuestion("Which city is the capital of Turkey?", "Ankara");
-        tq.askQuestion();
-        System.out.println("Your answer Istanbul is " + tq.checkAnswer("Istanbul"));
+        Question question = new TextQuestion("Was ist die Hauptstadt von Deutschland?");
 
-        String[] choice = {"London", "Moscow", "Istanbul", "St. Petersburg", "Berlin"};
-        mcquiz  mp = new mcquiz("Which city ist the most crowded city in Europe?", choice, "Istanbul");
-        mp.askQuestion();
-        System.out.println("Your answer Istanbul is " + mp.checkAnswer("Istanbul"));
+        String[] s1  = {"4", "2", "1", "0"};
+        Question question2 = new MultipleChoiceQuestion("Wie viele Protonen hat ein Wasserstoff-Atom?", s1);
+
+        Question[] questions = {question, question2};
+        Quiz quiz = new Quiz(questions);
+
+        quiz.printQuiz();
     }
 }

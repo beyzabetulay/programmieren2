@@ -1,16 +1,12 @@
-package lektion15.Quiz;
+package lektion15.quiz;
 
-public abstract class question {
+public abstract class Question {
 
-    String question;
-    String antwort;
+    String text;
 
-    public question(String question, String antwort){
-        this.question = question;
-        this.antwort = antwort;
+    public Question(String text){
+        this.text = text;
     }
 
-    abstract void askQuestion();
-
-    abstract boolean checkAnswer(String antwort);
+    public abstract String generateQuestion();
 }

@@ -1,16 +1,13 @@
-package lektion15.Quiz;
+package lektion15.quiz;
 
-public class textQuestion extends question{
+public class TextQuestion extends Question{
 
-    public textQuestion(String question, String antwort){
-        super(question, antwort);
+    public TextQuestion(String text){
+        super(text);
     }
 
-    public void askQuestion(){
-        System.out.println(question);
-    }
-
-    public boolean checkAnswer(String antwort){
-        return this.antwort.equals(antwort);
+    @Override
+    public String generateQuestion() {
+        return text + "\nAntwort:\n\n";
     }
 }
